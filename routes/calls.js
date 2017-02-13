@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongojs = require('mongojs');
-var db = mongojs('calls', ['calls'])
+var db = mongojs('mongodb://mongodb', ['calls'])
 
 //get all calls
 router.get('/calls', function(req, res, next){
