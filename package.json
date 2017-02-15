@@ -5,7 +5,10 @@
   "main": "server.js",
   "start": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava",
+    "lint": "standard",
+    "validate": "npm ls",
+    "dev": "chokidar '**/*.js' -c 'standard && ava'"
   },
   "repository": {
     "type": "git",
@@ -18,5 +21,16 @@
     "ejs": "^2.5.5",
     "express": "^4.14.1",
     "mongojs": "^2.4.0"
-  }
+  },
+  "devDependencies": {
+    "ava": "^0.18.1",
+    "chokidar-cli": "^1.2.0",
+    "precommit-hook": "^3.0.0",
+    "standard": "^8.6.0"
+  },
+  "pre-commit": [
+    "lint",
+    "validate",
+    "test"
+  ]
 }
